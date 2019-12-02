@@ -74,6 +74,7 @@
         the major categories of vehicles and commercial buildings</p>
       <h3>Goal State</h3>
       <p>1,000,000</p>
+      <chart-vehicle />
     </Part>
     <Part
       data-aos="fade-right"
@@ -123,6 +124,7 @@
       data-aos="fade-left"
       data-aos-anchor-placement="top-center"
       color="#eb6954" title="Interactive Solving">
+      <SessionInteractive />
     </Part>
     <Part
       data-aos="fade-right"
@@ -212,8 +214,10 @@
 import AOS from 'aos';
 import ChartSector from '../components/ChartSector.vue';
 import ChartPopulation from '../components/ChartPopulation.vue';
+import ChartVehicle from '../components/ChartVehicle.vue';
 import SessionBFS from '../components/SessionBFS.vue';
 import SessionAStar from '../components/SessionAStar.vue';
+import SessionInteractive from '../components/SessionInteractive.vue';
 import HeuristicsOne from '../components/HeuristicsOne.vue';
 import HeuristicsTwo from '../components/HeuristicsTwo.vue';
 import Part from '../components/Part.vue';
@@ -224,8 +228,10 @@ export default {
   components: {
     ChartSector,
     ChartPopulation,
+    ChartVehicle,
     SessionBFS,
     SessionAStar,
+    SessionInteractive,
     HeuristicsOne,
     HeuristicsTwo,
     Part,
