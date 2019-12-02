@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="{ overflow: 'hidden' }">
     <header>
       <img data-aos="fade-in"
         data-aos-anchor-placement="top-top" src="../assets/Seattle.jpg" />
@@ -24,7 +24,11 @@
         </div>
       </div>
     </header>
-    <Part right color="lightgreen" title="A Problem for Seattle">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="lightgreen" title="A Problem for Seattle">
       <div>
         <q>‘We are in trouble.’ Global carbon emissions reached a
           <span>record high</span> in 2018.</q>
@@ -38,7 +42,10 @@
           pollution, Seattle’s emissions continue to increase.</q>
       </div>
     </Part>
-    <Part color="#ffbf00" title="A Wicked Problem for Seattle">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="#ffbf00" title="A Wicked Problem for Seattle">
       <ol>
         <li>Solutions to wicked problems are
           <span>not true-or-false</span>, but better or worse.
@@ -53,7 +60,11 @@
         <u>Infinite plausible environmental policies to reduce carbon emission.</u>
       </ol>
     </Part>
-    <Part right color="#f56161" title="Problem Formulation">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="#f56161" title="Problem Formulation">
       <chart-sector />
       <h3>State Representation</h3>
       <p>Total emission = (# of vehicles * vehicle unit emission)
@@ -64,7 +75,10 @@
       <h3>Goal State</h3>
       <p>1,000,000</p>
     </Part>
-    <Part color="teal" title="Operators">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="teal" title="Operators">
       <h3>Transportation</h3>
       <div v-highlight>
         <pre>
@@ -104,28 +118,60 @@
       </div>
       <chart-population />
     </Part>
-    <Part right color="#eb6954" title="Interactive Solving">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="#eb6954" title="Interactive Solving">
     </Part>
-    <Part color="#2682d6" title="Blind Search">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="#2682d6" title="Blind Search">
+      <SessionBFS />
+      <p>BFS timed out for expanding two much unnecessary states.</p>
+      <ol>
+        <span>Notice how the cost is still 5 or 6 moves away from initial
+          state after expanding thousands of states.
+        </span>
+      </ol>
     </Part>
-    <Part right color="#d94f42" title="A* Search">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="#d94f42" title="A* Search">
       <SessionAStar />
+      <p>Since the heuristics used is admissible, the optimal solution is found.</p>
+      <ol>
+        <span>In comparison, Heuristics Two returns a solution with more edges.</span>
+      </ol>
     </Part>
-    <Part color="#898989" title="Hamming Heuristics">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="#898989" title="Hamming Heuristics">
       <HeuristicsOne />
       <ol>
         <li>Admissible</li>
         <li>Consistent</li>
       </ol>
     </Part>
-    <Part right color="#0fabff" title="Manhattan Heuristics">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="#0fabff" title="Manhattan Heuristics">
       <HeuristicsTwo />
       <ol>
         <li>Not admissible</li>
         <li>Not consistent</li>
       </ol>
     </Part>
-    <Part color="pink" title="State Space">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="pink" title="State Space">
       <ol>
         <li>Average branching factor of 6.</li>
         <span>Unless a value is going to be lowered below zero, all operators are legal.</span>
@@ -134,7 +180,11 @@
         <li>With large branching factor and estimated moves, a good heuristics is needed.</li>
       </ol>
     </Part>
-    <Part right color="lightcyan" title="Future Plan">
+    <Part
+      right
+      data-aos="fade-left"
+      data-aos-anchor-placement="top-center"
+      color="lightcyan" title="Future Plan">
       <ol>
         <li>Better heuristics function.</li>
         <span>Formulate admissible and consistent heuristics.</span>
@@ -143,7 +193,10 @@
         <span></span>
       </ol>
     </Part>
-    <Part color="RebeccaPurple" title="Reflections">
+    <Part
+      data-aos="fade-right"
+      data-aos-anchor-placement="top-center"
+      color="RebeccaPurple" title="Reflections">
       <ol>
         <li>The development of <span>heuristics</span> is challenging, finding compromise between
         the calculation cost of the heuristics and the
@@ -159,6 +212,7 @@
 import AOS from 'aos';
 import ChartSector from '../components/ChartSector.vue';
 import ChartPopulation from '../components/ChartPopulation.vue';
+import SessionBFS from '../components/SessionBFS.vue';
 import SessionAStar from '../components/SessionAStar.vue';
 import HeuristicsOne from '../components/HeuristicsOne.vue';
 import HeuristicsTwo from '../components/HeuristicsTwo.vue';
@@ -170,6 +224,7 @@ export default {
   components: {
     ChartSector,
     ChartPopulation,
+    SessionBFS,
     SessionAStar,
     HeuristicsOne,
     HeuristicsTwo,
